@@ -1,0 +1,4 @@
+ERROR - 14:49:23: java.net.MalformedURLException: unknown protocol: pathmap
+WARNING - 14:51:28: Convert soldier.core
+WARNING - 14:51:28: First conversion pass
+ERROR - 14:51:28: java.net.MalformedURLException: unknown protocol: pathmap

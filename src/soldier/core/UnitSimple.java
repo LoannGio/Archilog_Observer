@@ -7,7 +7,7 @@ package soldier.core;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public abstract class UnitSimple implements Unit {
+public abstract class UnitSimple extends ObservableUnit {
 
 	private BehaviorSoldier behavior;
 	private String name;
@@ -93,24 +93,5 @@ public abstract class UnitSimple implements Unit {
 		for (Iterator<Equipment> it = getWeapons(); it.hasNext(); it.next())
 			++result;
 		return result;
-	}
-
-	@Override
-	public void Attach(UnitObserver obs) {
-		_obs.add(obs);
-
-	}
-
-	@Override
-	public void Detach(UnitObserver obs) {
-		_obs.remove(obs);
-
-	}
-
-	@Override
-	public void Notify() {
-		for (UnitObserver uo : _obs)
-			uo.update(this);
-
 	}
 }

@@ -4,12 +4,12 @@
  * Solution TD Architecture Logicielle 2016 Université Bordeaux.
  */
 
+import soldier.core.Army;
 import soldier.core.Equipment;
 import soldier.core.ReportObserver;
 import soldier.core.Unit;
 import soldier.core.UnitObserver;
 import soldier.equipment.WeaponShield;
-import soldier.units.Army;
 import soldier.units.UnitCenturion;
 import soldier.units.UnitHorseMan;
 
@@ -65,7 +65,7 @@ public class MainFightExemple {
 		Equipment shield = new WeaponShield();
 		gr3.addEquipment(shield);
 		gr3.parry(3000);
-		System.out.println("Done.");
+		// System.out.println("Done.");
 
 	}
 

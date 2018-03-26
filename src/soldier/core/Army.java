@@ -1,17 +1,11 @@
-package soldier.units;
+package soldier.core;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.ListIterator;
 
-import soldier.core.Equipment;
-import soldier.core.EquipmentException;
-import soldier.core.Unit;
-import soldier.core.UnitObserver;
-
-public class Army implements Unit, Iterable<Unit> {
+public class Army extends ObservableUnit implements Iterable<Unit> {
 	private ArrayList<Unit> _children = new ArrayList<Unit>();
-	private ArrayList<UnitObserver> _obs = new ArrayList<UnitObserver>();
 	private String _name;
 
 	public Army(String name) {
@@ -141,24 +135,5 @@ public class Army implements Unit, Iterable<Unit> {
 	@Override
 	public String getName() {
 		return _name;
-	}
-
-	@Override
-	public void Attach(UnitObserver obs) {
-		_obs.add(obs);
-
-	}
-
-	@Override
-	public void Detach(UnitObserver obs) {
-		_obs.remove(obs);
-
-	}
-
-	@Override
-	public void Notify() {
-		for (UnitObserver uo : _obs)
-			uo.update(this);
-
 	}
 }
