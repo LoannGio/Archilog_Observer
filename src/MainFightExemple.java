@@ -50,8 +50,8 @@ public class MainFightExemple {
 		((Army) gr1).Attach(obs);
 		((Army) gr1).add(hm);
 		((Army) gr1).add(im);
-		Unit hm2 = new UnitCenturion("hm2");
-		Unit im2 = new UnitHorseMan("inf2");
+		Unit im2 = new UnitCenturion("inf2");
+		Unit hm2 = new UnitHorseMan("hm2");
 		Unit gr2 = new Army("gr2");
 		hm2.Attach(obs);
 		im2.Attach(obs);
@@ -62,10 +62,8 @@ public class MainFightExemple {
 		((Army) gr3).add(gr1);
 		((Army) gr3).add(gr2);
 		((Army) gr3).Attach(obs);
-		Equipment shield = new WeaponShield();
-		gr3.addEquipment(shield);
-		gr3.parry(3000);
-		// System.out.println("Done.");
+		double residu = gr3.parry(100);
+		System.out.println(residu);
 
 	}
 

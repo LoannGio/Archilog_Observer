@@ -55,21 +55,19 @@ public class Army extends ObservableUnit implements Iterable<Unit> {
 
 		while (!stop) {
 			residu = 0f;
-
 			ListIterator<Unit> iter = _children.listIterator();
 			while (iter.hasNext()) {
 				Unit u = iter.next();
 				float tmpResidu = u.parry(force / _children.size());
-				if (Math.abs(residu - 0f) > EPSILON)
+				if (tmpResidu > EPSILON) {
 					/* il y a un residu, u est donc mort */
 					iter.remove();
+				}
 
 				residu += tmpResidu;
 			}
 
-			if (alive() && Math.abs(residu - 0f) < EPSILON)
-				parry(residu);
-			else
+			if (!alive() || residu <= EPSILON)
 				stop = true;
 		}
 		Notify();
