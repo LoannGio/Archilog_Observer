@@ -50,7 +50,7 @@ public class Army extends ObservableUnit implements Iterable<Unit> {
 	public float parry(float force) {
 		float residu = 0f;
 		float EPSILON = 0.001f;
-		System.out.println(getName() + " force " + force);
+		// System.out.println(getName() + " force " + force);
 
 		Boolean stop = false;
 
@@ -60,6 +60,7 @@ public class Army extends ObservableUnit implements Iterable<Unit> {
 			while (iter.hasNext()) {
 				Unit u = iter.next();
 				float tmpResidu = u.parry(force / _children.size());
+				force -= force / _children.size();
 				if (tmpResidu > EPSILON) {
 					/* il y a un residu, u est donc mort */
 					iter.remove();
@@ -72,7 +73,7 @@ public class Army extends ObservableUnit implements Iterable<Unit> {
 				stop = true;
 		}
 		Notify();
-		System.out.println("residu " + getName() + " = " + residu);
+		// System.out.println("residu " + getName() + " = " + residu);
 		return residu;
 	}
 

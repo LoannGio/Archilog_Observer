@@ -62,7 +62,7 @@ public class MainFightExemple {
 		((Army) gr3).add(gr1);
 		((Army) gr3).add(gr2);
 		((Army) gr3).Attach(obs);
-		double residu = gr3.parry(3000);
+		double residu = gr3.parry(100);
 		System.out.println(residu);
 
 	}
