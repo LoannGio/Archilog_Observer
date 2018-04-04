@@ -28,4 +28,6 @@ public interface Unit {
 
 	public void Notify();
 
+	public void accept(IVisitor v);
+
 }

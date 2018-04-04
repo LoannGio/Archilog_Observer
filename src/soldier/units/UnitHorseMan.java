@@ -4,9 +4,10 @@
  */
 package soldier.units;
 
+import soldier.core.Equipment;
 import soldier.core.EquipmentException;
 import soldier.core.UnitRider;
-import soldier.core.Equipment;
+import soldier.core.IVisitor;
 
 public class UnitHorseMan extends UnitRider {
 
@@ -25,6 +26,11 @@ public class UnitHorseMan extends UnitRider {
 		if (nbW == 1 && getWeapons().next().getClass() == w.getClass())
 			throw new EquipmentException();
 		super.addEquipment(w);
+	}
+
+	@Override
+	public void accept(IVisitor v) {
+		v.visit(this);
 	}
 
 }

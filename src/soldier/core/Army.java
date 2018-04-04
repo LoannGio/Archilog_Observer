@@ -50,11 +50,10 @@ public class Army extends ObservableUnit implements Iterable<Unit> {
 	public float parry(float force) {
 		float residu = 0f;
 		float EPSILON = 0.001f;
-		// System.out.println(getName() + " force " + force);
+		int nbChildren = _children.size();
 
 		Boolean stop = false;
 
-		int nbChildren = _children.size();
 		while (!stop) {
 			residu = 0f;
 			ListIterator<Unit> iter = _children.listIterator();
@@ -73,7 +72,6 @@ public class Army extends ObservableUnit implements Iterable<Unit> {
 				stop = true;
 		}
 		Notify();
-		// System.out.println("residu " + getName() + " = " + residu);
 		return residu;
 	}
 
@@ -136,5 +134,11 @@ public class Army extends ObservableUnit implements Iterable<Unit> {
 	@Override
 	public String getName() {
 		return _name;
+	}
+
+	@Override
+	public void accept(IVisitor v) {
+		v.visit(this);
+
 	}
 }

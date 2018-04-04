@@ -4,9 +4,10 @@
  */
 package soldier.units;
 
+import soldier.core.Equipment;
 import soldier.core.EquipmentException;
 import soldier.core.UnitInfantry;
-import soldier.core.Equipment;
+import soldier.core.IVisitor;
 
 public class UnitCenturion extends UnitInfantry {
 
@@ -22,6 +23,11 @@ public class UnitCenturion extends UnitInfantry {
 		if (nbWeapons() > 1)
 			throw new EquipmentException();
 		super.addEquipment(w);
+	}
+
+	@Override
+	public void accept(IVisitor v) {
+		v.visit(this);
 	}
 
 }
