@@ -19,6 +19,7 @@ public class MainFightExemple {
 	public static void main(String[] args) {
 		// fight();
 		// fightObs();
+		System.out.println("test");
 		testVisitor();
 	}
 
